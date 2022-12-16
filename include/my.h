@@ -14,5 +14,6 @@
     #include <SFML/Window.h>
 
     sfRenderWindow *create_window(unsigned int x, unsigned int y, unsigned int bpp, char *title);
+    sfCircleShape *create_circle(sfVector2f pos, float radius);
 
 #endif /* !MY_ */

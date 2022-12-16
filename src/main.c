@@ -10,6 +10,8 @@
 int main(int argc, char const *argv[])
 {
     sfRenderWindow *window = create_window(800, 600, 32, "ma fenetre");
+    sfVector2f vector = {100, 100};
+    sfCircleShape *circle = create_circle(vector, 150);
     sfEvent event;
 
     if (!window)
@@ -20,9 +22,10 @@ int main(int argc, char const *argv[])
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
-        sfRenderWindow_clear(window, sfRed);
-
         sfRenderWindow_display(window);
+        sfRenderWindow_clear(window, sfWhite);
+        sfRenderWindow_drawCircleShape(window, circle, NULL);
+        sfCircleShape_setFillColor(circle, sfRed);
     }
     sfRenderWindow_destroy(window);
     return 0;
